@@ -495,21 +495,20 @@ module powerbi.extensibility.visual {
       }
     }
     public update(options: VisualUpdateOptions): void {
-      this.events.renderingStarted(options);
-      this.settings = Visual.parseSettings(options && options.dataViews && options.dataViews[0]);
-      const thisObj: this = this; const startDateArray: any = [];
-      const eventArray: string[] = []; const endDateArray: any = []; const eventGroupArray: string[] = []; const uniqueEvents: string[] = [];
-      const uniqueColors: string[] = []; const eventColors: string[] = [];
-      const eventGroup: string[] = []; const colors: string[] = []; const descriptionArray: string[] = []; let descriptionFlag: number = 0;
-      const businessHours: IBusinessHours[] = []; const workDay: number[] = [];
-      // contains index of category data, dragged into tooltip data bag
-      const tooltipDataIndex: number[] = []; const toolTipDataColumnName: string[] = [];
-      let eventName: string; let eventGroupName: string;
-      let startDateIndex: number; let endDateIndex: number = null; let eventIndex: number; let eventGroupIndex: number = null;
-      eventGroupFlag = false; let descriptionIndex: number = null; let categoriesLength: number; let endDateLength: number;
-      let startDateCategory: DataViewCategoryColumn; let startWeekDay: number;
       try {
-        this.eventService.renderingStarted(options);
+        this.events.renderingStarted(options);
+        this.settings = Visual.parseSettings(options && options.dataViews && options.dataViews[0]);
+        const thisObj: this = this; const startDateArray: any = [];
+        const eventArray: string[] = []; const endDateArray: any = []; const eventGroupArray: string[] = []; const uniqueEvents: string[] = [];
+        const uniqueColors: string[] = []; const eventColors: string[] = [];
+        const eventGroup: string[] = []; const colors: string[] = []; const descriptionArray: string[] = []; let descriptionFlag: number = 0;
+        const businessHours: IBusinessHours[] = []; const workDay: number[] = [];
+        // contains index of category data, dragged into tooltip data bag
+        const tooltipDataIndex: number[] = []; const toolTipDataColumnName: string[] = [];
+        let eventName: string; let eventGroupName: string;
+        let startDateIndex: number; let endDateIndex: number = null; let eventIndex: number; let eventGroupIndex: number = null;
+        eventGroupFlag = false; let descriptionIndex: number = null; let categoriesLength: number; let endDateLength: number;
+        let startDateCategory: DataViewCategoryColumn; let startWeekDay: number;
         const dataViews: DataView = options.dataViews[0]; const dataViewCategories: any[] = dataViews.categorical.categories;
         const viewPortHeight: number = options.viewport.height; const viewPortWidth: number = options.viewport.width;
         colorsPersistObject = {}; const colorsPersistedArray: string = this.settings.caption.captionValue;
@@ -586,7 +585,6 @@ module powerbi.extensibility.visual {
         };
         this.host.persistProperties(caption1); this.eventService.renderingFinished(options);
       } catch (exception) { this.eventService.renderingFailed(options, exception); }
-      this.events.renderingFinished(options);
     }
 
     private static parseSettings(dataView: DataView): VisualSettings {

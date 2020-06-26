@@ -4,10 +4,10 @@
     "displayName": "Calendar Visual by MAQ Software",
     "guid": "calendarVisual74934D05B71F4C31B0F79D925EE89638",
     "visualClassName": "Visual",
-    "version": "3.1.0.0",
+    "version": "3.1.0.1",
     "description": "A calendar visual renders a calendar and displays events based on event date in month, week, day and list view.",
-    "supportUrl": "https://github.com/maqsoftware/PowerBI-visuals/issues",
-    "gitHubUrl": "https://github.com/maqsoftware/PowerBI-visuals/"
+    "supportUrl": "https://github.com/maqsoftware/CalendarVisual/issues",
+    "gitHubUrl": "https://github.com/maqsoftware/CalendarVisual/"
   },
   "apiVersion": "2.5.0",
   "author": {
@@ -32,8 +32,7 @@
     "node_modules/jquery/dist/jquery.min.js",
     "node_modules/moment/moment.js",
     "node_modules/fullcalendar/dist/fullcalendar.min.js",
-    "node_modules/fullcalendar/dist/locale-all.js",
-    "node_modules/base-64/base64.js"
+    "node_modules/fullcalendar/dist/locale-all.js"
   ],
   "style": "style/visual.less",
   "capabilities": "capabilities.json",
