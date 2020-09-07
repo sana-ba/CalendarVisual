@@ -782,6 +782,7 @@ module powerbi.extensibility.visual {
         });
       }
       const buttons: string[] = [];
+      if (this.settings.buttons.year) { buttons.push('year'); }
       if (this.settings.buttons.month) { buttons.push('month'); }
       if (this.settings.buttons.week) { buttons.push('agendaWeek'); }
       if (this.settings.buttons.day) { buttons.push('agendaDay'); }
@@ -789,6 +790,9 @@ module powerbi.extensibility.visual {
       $('.calendar').fullCalendar({
         navLinks: this.settings.calendarSettings.navLink, eventLimit: true,
         views: {
+          year: {
+            eventLimit: 3, displayEventTime: false
+          },
           month: {
             eventLimit: 3, displayEventTime: false
           },
@@ -814,6 +818,9 @@ module powerbi.extensibility.visual {
           element.attr('title', `${event.title} : ${event.description}`);
           element.addClass(className); element.addClass('event');
         }
+      });
+      d3.select('.fc-year-button').on('click', () => {
+        thisObj.calendarView = 'year'; thisObj.persistView();
       });
       d3.select('.fc-month-button').on('click', () => {
         thisObj.calendarView = 'month'; thisObj.persistView();
@@ -977,14 +984,16 @@ module powerbi.extensibility.visual {
         });
       }
       const buttons: string[] = [];
+      if (this.settings.buttons.year) { buttons.push('year'); }
       if (this.settings.buttons.month) { buttons.push('month'); }
       if (this.settings.buttons.week) { buttons.push('agendaWeek'); }
       if (this.settings.buttons.day) { buttons.push('agendaDay'); }
       if (this.settings.buttons.list) { buttons.push('listMonth'); }
       $('.calendar').fullCalendar({
         navLinks: this.settings.calendarSettings.navLink,
-        eventLimit: true,
+        eventLimit: rue,
         views: {
+          year: { eventLimit: 3, displayEventTime: false },
           month: { eventLimit: 3, displayEventTime: false },
           week: { eventLimit: 3, displayEventTime: false },
           list: { displayEventTime: true }
@@ -1014,6 +1023,7 @@ module powerbi.extensibility.visual {
           element.addClass('event');
         }
       });
+      d3.select('.fc-year-button').on('click', () => { thisObj.calendarView = 'year'; thisObj.persistView(); });
       d3.select('.fc-month-button').on('click', () => { thisObj.calendarView = 'month'; thisObj.persistView(); });
       d3.select('.fc-agendaWeek-button').on('click', () => { thisObj.calendarView = 'agendaWeek'; thisObj.persistView(); });
       d3.select('.fc-agendaDay-button').on('click', () => { thisObj.calendarView = 'agendaDay'; thisObj.persistView(); });

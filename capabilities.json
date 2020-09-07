@@ -131,6 +131,12 @@
             "displayName": "Views",
             "description": "Settings to show or hide 'week', 'day' and 'list' button",
             "properties": {
+              "year": {
+                  "displayName": "Show year view",
+                  "type": {
+                      "bool":true
+                  }
+              },
                 "month": {
                     "displayName": "Show month view",
                     "type": {
@@ -427,7 +433,7 @@
                     "displayName": "Start week on",
                     "description": "Select week name to set start day of the week",
                     "type": {
-                        "enumeration": [ 
+                        "enumeration": [
                             {
                                 "value": "Monday",
                                 "displayName": "Monday"

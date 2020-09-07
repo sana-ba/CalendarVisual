@@ -39,6 +39,7 @@ module powerbi.extensibility.visual {
 
   // tslint:disable-next-line:max-classes-per-file
   export class ButtonSettings {
+    public year: boolean = true;
     public month: boolean = true;
     public week: boolean = true;
     public day: boolean = true;
